@@ -9,3 +9,5 @@ class StudentModel(Base):
     first_name = Column(String)
     last_name = Column(String)
     age = Column(Integer)
+    
+    

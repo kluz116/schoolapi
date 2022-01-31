@@ -3,9 +3,27 @@ from schemas import Student
 from models import StudentModel
 from database import engine
 from sqlalchemy.orm import Session
+from fastapi.middleware.cors import CORSMiddleware
 
 
 app = FastAPI()
+
+origins = [
+    "http://localhost.kluz.com",
+    "https://localhost.kluz.com",
+    "http://localhost",
+    "http://localhost:3000",
+     "http://localhost:8000"
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 
 @app.get("/root")
 def getRoot():
